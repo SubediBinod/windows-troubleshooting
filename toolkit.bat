@@ -82,6 +82,7 @@ echo.
 set "choice="
 set /p "choice=Select an option: "
 
+if /i "%choice%"=="Q" (call "%~dp0Windows\quick_health.bat" & goto MENU)
 if "%choice%"=="1" (call "%~dp0Network\network.bat" & goto MENU)
 if "%choice%"=="2" (call "%~dp0Windows\system_info.bat" & goto MENU)
 if "%choice%"=="3" (call "%~dp0Hardware\hardware.bat" & goto MENU)
