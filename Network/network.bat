@@ -13,30 +13,24 @@ echo   [2] Test internet connectivity (ping)
 echo   [3] Test DNS resolution (nslookup)
 echo   [4] Trace route to a host
 echo   [5] Flush DNS resolver cache
-echo   [6] Show saved Wi-Fi profiles
+echo   [6] Show saved Wi-Fi profile names
 echo   [7] Show active network connections
+echo   [8] Advanced network configuration
 echo.
 echo   [0] Back to main menu
 echo.
 set "choice="
 set /p "choice=Select an option: "
 
-if "%choice%"=="1" (
-    echo.
-    ipconfig /all
-    goto PAUSE
-)
+if "%choice%"=="1" (ipconfig /all & goto PAUSE)
 if "%choice%"=="2" goto PING
 if "%choice%"=="3" goto DNS
 if "%choice%"=="4" goto TRACE
 if "%choice%"=="5" goto FLUSHDNS
 if "%choice%"=="6" goto WIFI
-if "%choice%"=="7" (
-    echo.
-    netstat -ano
-    goto PAUSE
-)
-if "%choice%"=="0" goto END
+if "%choice%"=="7" (netstat -ano & goto PAUSE)
+if "%choice%"=="8" (call "%~dp0network_deep.bat" & goto MENU)
+if "%choice%"=="0" exit /b 0
 
 echo Invalid selection.
 timeout /t 2 /nobreak >nul
@@ -82,7 +76,3 @@ goto PAUSE
 echo.
 pause
 goto MENU
-
-:END
-endlocal
-exit /b 0
