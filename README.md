@@ -6,7 +6,7 @@ A menu-driven, expandable collection of Windows diagnostic scripts. It covers co
 
 1. Use **Code → Download ZIP** on GitHub and extract the folder, or clone:
    ```bat
-   git clone https://github.com/SubediBinod/Repo-shared-with-gpt.git
+   git clone https://github.com/SubediBinod/windows-troubleshooting.git
    ```
 2. Double-click `toolkit.bat`.
 3. Start in a normal terminal; elevate only when a particular check needs it.
