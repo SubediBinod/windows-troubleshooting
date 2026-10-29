@@ -19,6 +19,7 @@ echo [9] Disk and storage-related system events (last 7 days)
 echo [10] BIOS time and Windows time status
 echo [11] Open UEFI firmware settings (if supported)
 echo [12] Open Device Manager
+echo [13] CMOS / RTC clock symptom checklist
 echo [0] Back
 echo.
 set "choice="
@@ -34,10 +35,23 @@ if "%choice%"=="8" (powershell -NoProfile -Command "Get-WinEvent -FilterHashtabl
 if "%choice%"=="9" (powershell -NoProfile -Command "Get-WinEvent -FilterHashtable @{LogName='System';StartTime=(Get-Date).AddDays(-7)} -MaxEvents 500 -ErrorAction SilentlyContinue | Where-Object {$_.ProviderName -match 'disk|stor|nvme|ntfs|volmgr|iaStor|stornvme|storahci'} | Select-Object TimeCreated,Id,ProviderName,LevelDisplayName,Message | Format-List" & goto PAUSE)
 if "%choice%"=="10" (powershell -NoProfile -Command "Get-CimInstance Win32_OperatingSystem | Select-Object LastBootUpTime,LocalDateTime | Format-List; w32tm /query /status" & goto PAUSE)
 if "%choice%"=="11" (echo This opens firmware settings only if Windows and firmware support it. & shutdown /r /fw /t 0)
-if "%choice%"=="12" (start "" devmgmt.msc & goto MENU)\nif "%choice%"=="13" goto CMOS
+if "%choice%"=="12" (start "" devmgmt.msc & goto MENU)
+if "%choice%"=="13" goto CMOS\nif "%choice%"=="13" goto CMOS
 if "%choice%"=="0" exit /b 0
 echo Invalid selection.
 timeout /t 2 >nul
+goto MENU
+
+ :CMOS
+echo.
+echo CMOS / RTC BATTERY CHECKLIST
+echo - Windows generally cannot directly measure CMOS coin-cell voltage.
+echo - Clues include clock resets after full power-off or BIOS settings lost.
+echo - Verify Windows time sync and BIOS date/time first.
+echo - Follow the exact motherboard/laptop manual for physical inspection.
+echo - Laptops may use an internal RTC battery or connector.
+echo - These symptoms can also indicate firmware or motherboard problems.
+pause
 goto MENU
 
 :MEMTEST
