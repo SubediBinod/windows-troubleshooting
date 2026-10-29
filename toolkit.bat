@@ -47,6 +47,8 @@ echo          BINOD SUBEDI ^| WINDOWS TROUBLESHOOTING TOOLKIT
 echo ==================================================================
 echo  PC: %COMPUTERNAME%   ^|   %DATE%   %TIME:~0,8%
 echo ------------------------------------------------------------------
+echo   [Q] QUICK HEALTH CHECK - fast system triage and report
+echo.
 echo   [1] Network diagnostics
 echo   [2] System information
 echo   [3] Hardware and devices
