@@ -23,6 +23,11 @@ echo  [11] Applications, drivers and scheduled tasks
 echo  [12] Event logs and crash diagnostics
 echo  [13] Power, sleep and battery
 echo  [14] Windows Update diagnostics
+echo  [15] Advanced motherboard, CPU, RAM and disk checks
+echo  [16] OEM diagnostics and firmware guidance
+echo  [17] Packet capture with Windows pktmon
+echo  [18] Malware triage and forensic snapshots
+echo  [19] Enterprise, domain and policy diagnostics
 echo.
 echo  [20] Open Windows network settings
 echo  [21] Open Device Manager
@@ -30,6 +35,7 @@ echo  [22] Open Event Viewer
 echo  [23] Open Task Manager
 echo  [24] Open Resource Monitor
 echo  [25] Open Reliability Monitor
+echo  [26] Open System Information
 echo.
 echo   [0] Exit
 echo.
@@ -50,12 +56,18 @@ if "%choice%"=="11" (call "%~dp0Applications\apps_tasks.bat" & goto MENU)
 if "%choice%"=="12" (call "%~dp0Logs\logs.bat" & goto MENU)
 if "%choice%"=="13" (call "%~dp0Power\power.bat" & goto MENU)
 if "%choice%"=="14" (call "%~dp0Windows\update_diagnostics.bat" & goto MENU)
+if "%choice%"=="15" (call "%~dp0Hardware\deep_hardware.bat" & goto MENU)
+if "%choice%"=="16" (call "%~dp0Hardware\oem_tools.bat" & goto MENU)
+if "%choice%"=="17" (call "%~dp0Network\packet_capture.bat" & goto MENU)
+if "%choice%"=="18" (call "%~dp0Security\forensics.bat" & goto MENU)
+if "%choice%"=="19" (call "%~dp0Enterprise\enterprise.bat" & goto MENU)
 if "%choice%"=="20" (start "" ms-settings:network & goto MENU)
 if "%choice%"=="21" (start "" devmgmt.msc & goto MENU)
 if "%choice%"=="22" (start "" eventvwr.msc & goto MENU)
 if "%choice%"=="23" (start "" taskmgr.exe & goto MENU)
 if "%choice%"=="24" (start "" resmon.exe & goto MENU)
 if "%choice%"=="25" (start "" perfmon.exe /rel & goto MENU)
+if "%choice%"=="26" (start "" msinfo32.exe & goto MENU)
 if "%choice%"=="0" goto END
 
 echo.
