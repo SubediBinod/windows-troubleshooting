@@ -5,38 +5,12 @@ color 0B
 
 :WELCOME
 cls
-echo ==================================================================
-echo                    HI THERE, TROUBLESHOOTER!
-echo ==================================================================
-echo.
-echo  Welcome to the Toolkit. Something is broken, isn't it?
-echo.
-echo  Is Windows behaving perfectly today? How suspicious.
-echo  If not, let's find out what is wrong before blaming the printer.
-echo.
-echo  PC NAME       : %COMPUTERNAME%
-echo  LOGGED-IN USER: %USERNAME%
-echo  DATE          : %DATE%
-echo  TIME          : %TIME%
-echo.
-echo  ------------------------------------------------------------------
-echo  ABOUT THE AUTHOR
-echo  ------------------------------------------------------------------
-echo  I'm Binod Subedi, an IT and Systems Engineer. I ask Windows what
-echo  went wrong, interrogate the logs, and try not to take "have you
-echo  tried turning it off and on again?" personally.
-echo.
-echo  GitHub   : https://github.com/SubediBinod
-echo  LinkedIn : https://www.linkedin.com/in/binod-subedi-3238a7234/
-echo  Portfolio: https://binodsubedi15.com.np
-echo.
-echo  This toolkit is a practical collection of diagnostic shortcuts
-echo  and scripts. Some checks need administrator rights or OEM tools.
-echo  Read prompts carefully; a few actions can restart the computer,
-echo  capture network traffic, or change system state.
-echo.
-echo  Happy troubleshooting! May your logs be clear and your reboots few.
-echo ==================================================================
+powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%~dp0Windows\intro_animation.ps1"
+if errorlevel 1 (
+    echo.
+    echo Welcome to the Windows Troubleshooting Toolkit.
+    echo Run this toolkit on a Windows system with PowerShell available.
+)
 echo.
 pause
 
