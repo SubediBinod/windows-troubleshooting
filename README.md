@@ -58,6 +58,8 @@ Repo-shared-with-gpt/
 │   └── forensics.bat
 ├── Enterprise/enterprise.bat
 └── Windows/
+    ├── quick_health.bat
+    ├── quick_health.ps1
     ├── system_info.bat
     ├── windows_health.bat
     └── update_diagnostics.bat
