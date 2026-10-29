@@ -9,10 +9,12 @@ A menu-driven, expandable collection of Windows diagnostic scripts. It covers co
    git clone https://github.com/SubediBinod/windows-troubleshooting.git
    ```
 2. Double-click `toolkit.bat`.
-3. Start in a normal terminal; elevate only when a particular check needs it.
+3. Choose **Q — Quick Health Check** for a fast, read-only triage sweep and a timestamped report saved to the Desktop.
+4. Start in a normal terminal; elevate only when a particular check needs it.
 
 ## Coverage
 
+- **Quick Health Check:** quick gateway/internet/DNS checks, CPU and RAM pressure, system-drive free space, available physical-disk health indicators, essential service states, Defender/firewall visibility, recent critical System events and unexpected-shutdown indicators. Saves a timestamped report to the Desktop. Read-only; no repair or reboot.
 - **Network:** IP configuration, ping, DNS, route tracing, DNS cache, Wi-Fi profile names, active connections, adapters, gateways, ARP, proxy, firewall and TCP tests.
 - **Packet capture:** built-in Windows `pktmon` start/stop, ETL capture and PCAPNG conversion where supported. Wireshark is needed for detailed protocol inspection.
 - **System:** Windows version/build, host/user and system summary.
@@ -77,6 +79,7 @@ Repo-shared-with-gpt/
 ## Safety
 
 - Prefer observation before repair. These scripts are diagnostic snapshots, not guaranteed diagnoses.
+- Quick Health Check results are indicators, not a definitive diagnosis. ICMP/TCP/DNS checks may be blocked by VPNs, firewalls or company policy; disk health may be unavailable through some controllers; a clean snapshot does not rule out intermittent faults.
 - `sfc /verifyonly` verifies protected system files without repairing them.
 - `DISM /CheckHealth` checks whether component-store corruption has already been flagged; it is not a full scan or repair.
 - `chkdsk C: /scan` requests an online scan, not offline repair.
