@@ -42,7 +42,7 @@ echo Invalid selection.
 timeout /t 2 >nul
 goto MENU
 
- :CMOS
+:CMOS
 echo.
 echo CMOS / RTC BATTERY CHECKLIST
 echo - Windows generally cannot directly measure CMOS coin-cell voltage.
