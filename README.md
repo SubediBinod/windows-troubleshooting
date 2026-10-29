@@ -10,11 +10,13 @@ A menu-driven, expandable collection of Windows diagnostic scripts. It covers co
    ```
 2. Double-click `toolkit.bat`.
 3. Choose **Q — Quick Health Check** for a fast, read-only triage sweep and a timestamped report saved to the Desktop.
-4. Start in a normal terminal; elevate only when a particular check needs it.
+4. Choose **R — Generate Support Report** for a broader read-only snapshot of system, hardware, network, storage, processes, services, security visibility, updates, and recent critical/error events. It opens the report in Notepad when possible.
+5. Start in a normal terminal; elevate only when a particular check needs it.
 
 ## Coverage
 
 - **Quick Health Check:** quick gateway/internet/DNS checks, CPU and RAM pressure, system-drive free space, available physical-disk health indicators, essential service states, Defender/firewall visibility, recent critical System events and unexpected-shutdown indicators. Saves a timestamped report to the Desktop. Read-only; no repair or reboot.
+- **Generate Support Report:** broader timestamped text report covering OS/BIOS, CPU/RAM inventory, adapters/IP/DNS/routes, a limited snapshot of TCP connections, storage, top processes, stopped automatic services, Defender/firewall visibility, recent updates, and recent System/Application critical/error events. Opens the report in Notepad when possible. Review/redact sensitive details before sharing.
 - **Network:** IP configuration, ping, DNS, route tracing, DNS cache, Wi-Fi profile names, active connections, adapters, gateways, ARP, proxy, firewall and TCP tests.
 - **Packet capture:** built-in Windows `pktmon` start/stop, ETL capture and PCAPNG conversion where supported. Wireshark is needed for detailed protocol inspection.
 - **System:** Windows version/build, host/user and system summary.
@@ -35,9 +37,12 @@ A menu-driven, expandable collection of Windows diagnostic scripts. It covers co
 ## Repository layout
 
 ```text
-Repo-shared-with-gpt/
+windows-troubleshooting/
 ├── toolkit.bat
 ├── README.md
+├── Reports/
+│   ├── generate_report.bat
+│   └── generate_report.ps1
 ├── Network/
 │   ├── network.bat
 │   ├── network_deep.bat
@@ -81,6 +86,7 @@ Repo-shared-with-gpt/
 ## Safety
 
 - Prefer observation before repair. These scripts are diagnostic snapshots, not guaranteed diagnoses.
+- Generated support reports can include account names, device names, IP/MAC addresses, domain details, running processes and event messages. Review and redact them before sharing.
 - Quick Health Check results are indicators, not a definitive diagnosis. ICMP/TCP/DNS checks may be blocked by VPNs, firewalls or company policy; disk health may be unavailable through some controllers; a clean snapshot does not rule out intermittent faults.
 - `sfc /verifyonly` verifies protected system files without repairing them.
 - `DISM /CheckHealth` checks whether component-store corruption has already been flagged; it is not a full scan or repair.
