@@ -22,9 +22,9 @@ echo.
 echo  ------------------------------------------------------------------
 echo  ABOUT THE AUTHOR
 echo  ------------------------------------------------------------------
-echo  Hi, I'm Binod Subedi, an IT and Systems Engineer who enjoys
-echo  troubleshooting Windows, networks, hardware, and the occasional
-echo  mystery that turns out to be a loose cable.
+echo  I'm Binod Subedi, an IT and Systems Engineer. I ask Windows what
+echo  went wrong, interrogate the logs, and try not to take "have you
+echo  tried turning it off and on again?" personally.
 echo.
 echo  GitHub   : https://github.com/SubediBinod
 echo  LinkedIn : https://www.linkedin.com/in/binod-subedi-3238a7234/
@@ -48,6 +48,7 @@ echo ==================================================================
 echo  PC: %COMPUTERNAME%   ^|   %DATE%   %TIME:~0,8%
 echo ------------------------------------------------------------------
 echo   [Q] QUICK HEALTH CHECK - fast system triage and report
+echo   [R] GENERATE SUPPORT REPORT - broader diagnostic snapshot
 echo.
 echo   [1] Network diagnostics
 echo   [2] System information
@@ -83,6 +84,7 @@ set "choice="
 set /p "choice=Select an option: "
 
 if /i "%choice%"=="Q" (call "%~dp0Windows\quick_health.bat" & goto MENU)
+if /i "%choice%"=="R" (call "%~dp0Reports\generate_report.bat" & goto MENU)
 if "%choice%"=="1" (call "%~dp0Network\network.bat" & goto MENU)
 if "%choice%"=="2" (call "%~dp0Windows\system_info.bat" & goto MENU)
 if "%choice%"=="3" (call "%~dp0Hardware\hardware.bat" & goto MENU)
