@@ -14,7 +14,7 @@ echo   [2] System information
 echo   [3] Hardware and devices
 echo   [4] Storage and drives
 echo   [5] Performance and startup
-echo   [6] Windows health and update diagnostics
+echo   [6] Windows health diagnostics
 echo   [7] Security status
 echo   [8] Services, processes and ports
 echo   [9] Advanced network configuration
@@ -22,6 +22,7 @@ echo  [10] Printers, audio, Bluetooth, USB and cameras
 echo  [11] Applications, drivers and scheduled tasks
 echo  [12] Event logs and crash diagnostics
 echo  [13] Power, sleep and battery
+echo  [14] Windows Update diagnostics
 echo.
 echo  [20] Open Windows network settings
 echo  [21] Open Device Manager
@@ -48,6 +49,7 @@ if "%choice%"=="10" (call "%~dp0Peripherals\peripherals.bat" & goto MENU)
 if "%choice%"=="11" (call "%~dp0Applications\apps_tasks.bat" & goto MENU)
 if "%choice%"=="12" (call "%~dp0Logs\logs.bat" & goto MENU)
 if "%choice%"=="13" (call "%~dp0Power\power.bat" & goto MENU)
+if "%choice%"=="14" (call "%~dp0Windows\update_diagnostics.bat" & goto MENU)
 if "%choice%"=="20" (start "" ms-settings:network & goto MENU)
 if "%choice%"=="21" (start "" devmgmt.msc & goto MENU)
 if "%choice%"=="22" (start "" eventvwr.msc & goto MENU)
