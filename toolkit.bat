@@ -3,12 +3,50 @@ setlocal EnableExtensions
 title BINOD SUBEDI - WINDOWS TROUBLESHOOTING TOOLKIT
 color 0B
 
+:WELCOME
+cls
+echo ==================================================================
+echo                    HI THERE, TROUBLESHOOTER!
+echo ==================================================================
+echo.
+echo  Welcome to the BINOD SUBEDI Windows Troubleshooting Toolkit.
+echo.
+echo  Is Windows behaving perfectly today? How suspicious.
+echo  If not, let's find out what is wrong before blaming the printer.
+echo.
+echo  PC NAME       : %COMPUTERNAME%
+echo  LOGGED-IN USER: %USERNAME%
+echo  DATE          : %DATE%
+echo  TIME          : %TIME%
+echo.
+echo  ------------------------------------------------------------------
+echo  ABOUT THE AUTHOR
+echo  ------------------------------------------------------------------
+echo  Hi, I'm Binod Subedi, an IT and Systems Engineer who enjoys
+echo  troubleshooting Windows, networks, hardware, and the occasional
+echo  mystery that turns out to be a loose cable.
+echo.
+echo  GitHub   : https://github.com/SubediBinod
+echo  LinkedIn : https://www.linkedin.com/in/binod-subedi-3238a7234/
+echo  Portfolio: https://binodsubedi15.com.np
+echo.
+echo  This toolkit is a practical collection of diagnostic shortcuts
+echo  and scripts. Some checks need administrator rights or OEM tools.
+echo  Read prompts carefully; a few actions can restart the computer,
+echo  capture network traffic, or change system state.
+echo.
+echo  Happy troubleshooting! May your logs be clear and your reboots few.
+echo ==================================================================
+echo.
+pause
+
 :MENU
 cls
 echo ==================================================================
 echo          BINOD SUBEDI ^| WINDOWS TROUBLESHOOTING TOOLKIT
 echo ==================================================================
-echo.
+echo  PC: %COMPUTERNAME%   ^|   %DATE%   %TIME:~0,8%
+echo ------------------------------------------------------------------
 echo   [1] Network diagnostics
 echo   [2] System information
 echo   [3] Hardware and devices
