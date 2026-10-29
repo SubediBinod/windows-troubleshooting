@@ -9,7 +9,7 @@ echo ==================================================================
 echo                    HI THERE, TROUBLESHOOTER!
 echo ==================================================================
 echo.
-echo  Welcome to the BINOD SUBEDI Windows Troubleshooting Toolkit.
+echo  Welcome to the Toolkit. Something is broken, isn't it?
 echo.
 echo  Is Windows behaving perfectly today? How suspicious.
 echo  If not, let's find out what is wrong before blaming the printer.
